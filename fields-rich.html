@@ -1,0 +1,16 @@
+<head>
+  <title>fields-simple</title>
+</head>
+
+<body>
+  {{> hello}}
+</body>
+
+<template name="hello">
+    <h1>Hellow World!</h1>
+    {{#with obj}}
+    {{> dynamic name}}
+    {{> dynamic desc}}
+    {{> dynamic name}}
+    {{/with}}
+</template>
