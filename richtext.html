@@ -3,23 +3,21 @@
         <h3>{{label}}</h3>
     </div>
     {{> toolbar}}
-    <div class="row-fluid">
-        {{> editor}}
-    </div>
+    {{> editor}}
     <div class="row-fluid">
         <p>Current Value: {{description}}</p>
     </div>
 </template>
 
 <template name="editor">
-    <div id="editor-{{_id}}" class="editor">
-        {{description}}
+    <div class="row-fluid">
+        <div id="editor-{{_id}}" class="editor">{{description}}</div>
     </div>
 </template>
 
 <template name="toolbar">
     <div class="row-fluid">
-        <div id="toolbar-{{_id}}" class="btn-toolbar" data-target="editor-{{_id}}">
+        <div id="toolbar-{{_id}}" class="btn-toolbar" data-role="editor-toolbar" data-target="#editor-{{_id}}">
             <div class="btn-group">
               <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
                 <ul class="dropdown-menu">
