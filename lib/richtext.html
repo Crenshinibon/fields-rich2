@@ -1,0 +1,37 @@
+<template name="richtext">
+    <div class="row-fluid">
+        <h3>{{label}}</h3>
+    </div>
+    {{> toolbar}}
+    <div class="row-fluid">
+        {{> editor}}
+    </div>
+    <div class="row-fluid">
+        <p>Current Value: {{description}}</p>
+    </div>
+</template>
+
+<template name="editor">
+    <div id="editor-{{_id}}" class="editor">
+        {{description}}
+    </div>
+</template>
+
+<template name="toolbar">
+    <div class="row-fluid">
+        <div id="toolbar-{{_id}}" class="btn-toolbar" data-target="editor-{{_id}}">
+            <div class="btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+                <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+                <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+                </ul>
+            </div>
+            <div class="btn-group">
+              <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+              <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+            </div>
+        </div>
+    </div>
+</template>

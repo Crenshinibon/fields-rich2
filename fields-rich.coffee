@@ -5,18 +5,17 @@ if Meteor.isServer
         Test.find()
     
     Meteor.startup () ->
-        if Test.find({name: {$exists: true}}).count() is 0
-            nameId = createDynamicField 'name'
-            descId = createDynamicField 'desc'
+        if Test.find().count() is 0
             Test.insert 
-                name: {id: nameId, collection: 'name'}
-                desc: {id: descId, collection: 'desc'}
+                label: 'Description'
+                description: 'some description'
     
 if Meteor.isClient
     
-    Meteor.subscribe 'test'
-    
-    Template.hello.obj = () ->
-        Test.findOne {name: {$exists: true}}
+    Meteor.autorun () ->
+        Meteor.subscribe 'test'
         
+    Template.hello.description = () ->
+        Test.findOne()
+            
                 
