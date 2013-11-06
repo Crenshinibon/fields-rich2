@@ -19,6 +19,5 @@ if Meteor.isClient
         Test.findOne()
     
     Template.editor.rendered = () ->
-        $("#editor-#{@data._id}").wysiwyg
-            toolbarSelector: "#toolbar-#{@data._id}"
-    
+        console.log @data.description
+        
