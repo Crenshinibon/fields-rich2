@@ -5,13 +5,13 @@
     {{> toolbar}}
     {{> editor}}
     <div class="row-fluid">
-        <p>Current Value: {{description}}</p>
+        <p>Current Value: {{desc}}</p>
     </div>
 </template>
 
 <template name="editor">
     <div class="row-fluid">
-        <div id="editor-{{_id}}" class="editor">{{description}}</div>
+        <div id="editor-{{_id}}" class="editor">{{safeDesc}}</div>
     </div>
 </template>
 

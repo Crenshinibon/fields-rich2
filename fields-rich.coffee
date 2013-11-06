@@ -8,7 +8,7 @@ if Meteor.isServer
         if Test.find().count() is 0
             Test.insert 
                 label: 'Description'
-                description: 'some description'
+                desc: 'some description'
     
 if Meteor.isClient
     
@@ -18,6 +18,16 @@ if Meteor.isClient
     Template.hello.description = () ->
         Test.findOne()
     
-    Template.editor.rendered = () ->
-        console.log @data.description
-        
+    Template.richtext.rendered = () ->
+        $("#editor-#{@data._id}").wysiwyg
+            toolbarSelector: "#toolbar-#{@data._id}"
+    
+    Template.editor.safeDesc = () ->
+        new Handlebars.SafeString @desc
+    
+    Template.editor.events
+        'keyup div.editor': (e) ->
+            newVal = $(e.target).cleanHtml()
+            console.log newVal
+            Test.update {_id: @_id}, {$set: {desc: newVal}}
+            

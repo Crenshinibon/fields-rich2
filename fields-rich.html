@@ -9,6 +9,10 @@
 <template name="hello">
     <div class="container-fluid">
     <h1>Hello World!</h1>
+    {{#if description}}
     {{> richtext description}}
+    {{else}}
+    LOADING
+    {{/if}}
 </div>
 </template>
